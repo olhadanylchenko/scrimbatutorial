@@ -1,0 +1,116 @@
+body {
+    background-color: floralwhite;
+    font-family: monospace !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 1%;
+    margin: 0%;
+    border-top-width: 3px;
+    border-top-style: dotted;
+    background-color: rgba(233, 230, 230, 0.3);
+    color: rgba(230, 211, 230, 0.808);
+    font-size: 110%;
+}
+
+.datefield {
+    background-color: gainsboro;
+    color: lightcoral;
+    text-align: right;
+    padding: 0.5%;
+}
+
+main, .mainContent, h1 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    padding: 1% 1% 2% 1%;
+    background-color: white;
+}
+
+.todo {
+    padding: 1% 1% 2% 2%;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: linen;
+    box-shadow: 0 1px 1px ghostwhite,
+    0px 10px 0px -5px gainsboro,
+    0 10px 1px -4px ghostwhite,
+    0px 20px 0px -10px gainsboro,
+    0 20px 1px -9px ghostwhite;
+}
+
+.todo:checked {
+    text-decoration: line-through;
+}
+
+.contacts {
+    display: inherit;
+    flex-direction: column;
+    background-color: gainsboro;
+    border: 3px double lightsalmon;
+}
+
+.contacts h3 {
+    padding-left: 2%;
+    font-size: 20pt;
+    text-align: center;
+}
+
+.contactsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.contact-card {
+    flex-direction: column;
+    justify-content: left;
+    justify-items: left;
+    padding: 1%;
+    margin: 1%;
+    border: 2px dotted lightsalmon;
+    background-color: rgb(243, 236, 231);
+}
+
+.contact-card img {
+    align-self: flex-start;
+}
+
+.jokes {
+    display: inherit;
+    padding: 1%;
+    border: 2px dashed lightcoral;
+}
+
+.jokes > div:nth-of-type(odd) {
+    background-color: lightcyan;
+}
+
+.jokes h4 {
+    font-size: 150%;
+    text-align: center;
+    background-color: linen;
+    box-shadow: 2px 2px 10px linen;
+}
+
+footer {
+    background-color: thistle;
+    /* border-bottom-style: groove;
+    border-bottom-width: 1%; */
+    color: ghostwhite;
+    text-align: center;
+    padding: 0.5%;
+}
