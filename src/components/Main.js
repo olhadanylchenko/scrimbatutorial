@@ -6,52 +6,57 @@ import Contacts from "./Contacts.js";
 import Jokes from "./Jokes.js";
 
 class Main extends Component {
-    constructor() {
-        super();
-        this.state = {
-            input: "",
-            tasks: todoDatabase,
-        };
-        this.handleTick = this.handleTick.bind(this);
+  constructor() {
+    super();
+    this.state = {
+      input: "",
+      tasks: todoDatabase
     };
-    handleTick(id) {
-        this.setState(prevState => {
-            // MAP
-            const updatedTasks = prevState.tasks.map(task => {
-                if (task.id === id) {
-                    task.completed = !task.completed
-                }
-                return task
-            })
-            // SET STATE
-            return {
-                todos: updatedTasks
-            }
-        });
-    };
-    // addItem(e) {
-    //     const updatedTasks = [...this.state.tasks];
+    this.handleTick = this.handleTick.bind(this);
+  }
+  handleTick(id) {
+    this.setState(prevState => {
+      // MAP
+      const updatedTasks = prevState.tasks.map(task => {
+        if (task.id === id) {
+          task.completed = !task.completed;
+        }
+        return task;
+      });
+      // SET STATE
+      return {
+        todos: updatedTasks
+      };
+    });
+  }
 
-    // };
-    deleteLine = (index) => {
-        console.log(index);
-    }
-    render() {
-        const allTasks = this.state.tasks.map((task, index) => <TodoTask key={task.id} index={index} taskID={task.id} text={task.text} completed={task.completed} handleTick={this.handleTick} deleteLine={this.deleteLine} />);
-        return (
-            <main>
-                <h1>React tutorial</h1>
-                <div id="2" className="todo">
-                    <h2>A to-do list</h2>
-                    <div className = "todo">
-                        {allTasks}
-                    </div>
-                </div>
-                <Contacts />
-                <Jokes />
-            </main>
-        )
-    }
+  deleteLine = index => {
+    console.log(index);
+  };
+  render() {
+    const allTasks = this.state.tasks.map((task, index) => (
+      <TodoTask
+        key={task.id}
+        index={index}
+        taskID={task.id}
+        text={task.text}
+        completed={task.completed}
+        handleTick={this.handleTick}
+        deleteLine={this.deleteLine}
+      />
+    ));
+    return (
+      <main>
+        <h1>React tutorial</h1>
+        <div id="2" className="todo">
+          <h2>A to-do list</h2>
+          <div className="todo">{allTasks}</div>
+        </div>
+        <Contacts />
+        <Jokes />
+      </main>
+    );
+  }
 }
 
 // function Main () {
