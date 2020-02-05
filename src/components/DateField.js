@@ -53,7 +53,7 @@ function DateField() {
         } else if (date.getDate() === 2 || date.getDate() === 22) {
             return "nd";
         } else {
-                return "rd";
+            return "rd";
         };
     }
     return (

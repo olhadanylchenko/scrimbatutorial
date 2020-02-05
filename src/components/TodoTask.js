@@ -29,7 +29,7 @@ function TodoTask(props) {
     return (
         <form style={props.completed ? checked : null}>
             <input type="checkbox" checked={props.completed} onChange={() => props.handleTick(props.taskID)} />
-            <label>{props.text}</label><br />
+            <label>{props.text}</label><button type="button" onChange={() => props.deleteLine(props.index)}>x</button><br />
         </form>
     );
 }

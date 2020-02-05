@@ -9,6 +9,7 @@ class Main extends Component {
     constructor() {
         super();
         this.state = {
+            input: "",
             tasks: todoDatabase,
         };
         this.handleTick = this.handleTick.bind(this);
@@ -28,8 +29,15 @@ class Main extends Component {
             }
         });
     };
+    // addItem(e) {
+    //     const updatedTasks = [...this.state.tasks];
+
+    // };
+    deleteLine = (index) => {
+        console.log(index);
+    }
     render() {
-        const allTasks = this.state.tasks.map(task => <TodoTask key={task.id} taskID={task.id} text={task.text} completed={task.completed} handleTick={this.handleTick} />);
+        const allTasks = this.state.tasks.map((task, index) => <TodoTask key={task.id} index={index} taskID={task.id} text={task.text} completed={task.completed} handleTick={this.handleTick} deleteLine={this.deleteLine} />);
         return (
             <main>
                 <h1>React tutorial</h1>
