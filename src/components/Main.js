@@ -12,9 +12,8 @@ class Main extends Component {
       input: "",
       tasks: todoDatabase
     };
-    this.handleTick = this.handleTick.bind(this);
   }
-  handleTick(id) {
+  handleTick = id => {
     this.setState(prevState => {
       // MAP
       const updatedTasks = prevState.tasks.map(task => {
@@ -28,21 +27,26 @@ class Main extends Component {
         todos: updatedTasks
       };
     });
-  }
-
-  deleteLine = index => {
-    console.log(index);
   };
+
+  handleDelete = index => {
+    const tasks = [...this.state.tasks];
+    tasks.splice(index, 1);
+    this.setState({
+      tasks
+    });
+  };
+
   render() {
     const allTasks = this.state.tasks.map((task, index) => (
       <TodoTask
         key={task.id}
         index={index}
+        handleDelete={this.handleDelete}
         taskID={task.id}
         text={task.text}
         completed={task.completed}
         handleTick={this.handleTick}
-        deleteLine={this.deleteLine}
       />
     ));
     return (
@@ -58,23 +62,5 @@ class Main extends Component {
     );
   }
 }
-
-// function Main () {
-//     const task = todoDatabase.map(task => <TodoTask key ={task.id} text={task.text} completed={task.completed} />);
-//     return (
-//         <main>
-//             <div className="mainContent">
-//                 <h1>React tutorial</h1>
-//                 <h2>A to-do list</h2>
-//                 <div id="2" className = "todo">
-//                     {/* { task.forEach(item => item) } */}
-//                     {task[0]}{task[1]}{task[2]}{task[3]}{task[4]}
-//                 </div>
-//             </div>
-//             <Contacts />
-//             <Jokes />
-//         </main>
-//     );
-// };
 
 export default Main;
